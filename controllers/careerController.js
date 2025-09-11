@@ -106,44 +106,6 @@ exports.getInterestsAndStrengths = async (req, res) => {
     }
   };
   
-  // ... (other exports remain the same)
-  
-//   exports.getCareerSuggestions = async (req, res) => {
-//     try {
-//       const { interest, strength } = req.body;
-//       console.log('Received request for:', { interest, strength }); // Add this for debugging
-  
-//       let query = {};
-//       if (interest) query.industry = interest;
-//       if (strength) query.category = strength;
-  
-//       console.log('Query:', query); // Add this for debugging
-  
-//       const suggestions = await Career.find(query)
-//         .select('jobTitle averageSalary')
-//         .limit(10); // Limit to 10 suggestions
-  
-//       console.log('Suggestions found:', suggestions.length); // Add this for debugging
-  
-//       if (suggestions.length === 0) {
-//         // If no exact match, try a more flexible search
-//         delete query.category; // Remove the strength constraint
-//         const flexibleSuggestions = await Career.find(query)
-//           .select('jobTitle averageSalary')
-//           .limit(10);
-  
-//         console.log('Flexible suggestions found:', flexibleSuggestions.length); // Add this for debugging
-  
-//         res.status(200).json(flexibleSuggestions);
-//       } else {
-//         res.status(200).json(suggestions);
-//       }
-//     } catch (error) {
-//       console.error('Error fetching career suggestions:', error);
-//       res.status(500).json({ error: 'An error occurred while fetching career suggestions' });
-//     }
-//   };
-
   
 
 exports.getCareerSuggestions = async (req, res) => {
