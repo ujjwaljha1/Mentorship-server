@@ -18,4 +18,8 @@ router.post('/resources', resourceController.addResource);
 router.get('/resources', resourceController.getResources);
 router.get('/resources/:id/download', resourceController.downloadResource);
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const mongoose = require('mongoose');
 
 // const MentorAppointmentSchema = new mongoose.Schema({
@@ -31,6 +32,8 @@
 // });
 
 // module.exports = mongoose.model('MentorAppointment', MentorAppointmentSchema);
+=======
+>>>>>>> upstream/main
 
 
 const mongoose = require('mongoose');
@@ -74,4 +77,8 @@ const MentorAppointmentSchema = new mongoose.Schema({
   timestamps: true
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('MentorAppointment', MentorAppointmentSchema);
+=======
+module.exports = mongoose.model('MentorAppointment', MentorAppointmentSchema);
+>>>>>>> upstream/main

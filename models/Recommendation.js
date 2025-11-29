@@ -63,7 +63,11 @@ const recommendationSchema = new mongoose.Schema({
         type: String,
         required: true
       }
+<<<<<<< HEAD
     }],},
+=======
+    }]},
+>>>>>>> upstream/main
   salaryTrends: [{
     year: {
       type: Number,
@@ -99,4 +103,8 @@ const recommendationSchema = new mongoose.Schema({
   }]
 }, { timestamps: true });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Recommendation', recommendationSchema);
+=======
+module.exports = mongoose.model('Recommendation', recommendationSchema);
+>>>>>>> upstream/main

@@ -1,0 +1,57 @@
+name: Test Suite
+
+on:
+  push:
+    branches: [ main, develop, feature/** ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: '0 0 * * 0' # Weekly on Sunday
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16.x, 18.x, 20.x]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm test
+        env:
+          NODE_ENV: test
+          JWT_SECRET: ${{ secrets.TEST_JWT_SECRET || 'test-secret-key' }}
+          
+      - name: Generate test report
+        if: always()
+        run: |
+          echo "Test Results for ${{ matrix.os }} - Node ${{ matrix.node-version }}" > test-report.txt
+          npm test -- --json --outputFile=test-results.json || true
+          
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results-${{ matrix.os }}-${{ matrix.node-version }}
+          path: |
+            test-results.json
+            test-report.txt
+            coverage/

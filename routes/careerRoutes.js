@@ -19,4 +19,8 @@ router.get('/:id', careerController.getCareer);
 router.get('/', careerController.getAllCareers);
 
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

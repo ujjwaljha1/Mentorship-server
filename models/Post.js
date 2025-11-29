@@ -69,4 +69,8 @@ const PostSchema = new mongoose.Schema({
   }
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Post', PostSchema);
+=======
+module.exports = mongoose.model('Post', PostSchema);
+>>>>>>> upstream/main

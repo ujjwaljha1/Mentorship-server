@@ -22,4 +22,8 @@ const workshopSchema = new mongoose.Schema({
   venueAddress: String
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Workshop', workshopSchema);
+=======
+module.exports = mongoose.model('Workshop', workshopSchema);
+>>>>>>> upstream/main

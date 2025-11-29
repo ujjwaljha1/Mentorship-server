@@ -7,7 +7,11 @@ exports.createWorkshop = async (req, res) => {
   try {
     const workshop = new Workshop({
       title: req.body.title,
+<<<<<<< HEAD
       banner: req.body.banner, 
+=======
+      banner: req.body.banner,
+>>>>>>> upstream/main
       date: req.body.date,
       time: req.body.time,
       location: req.body.location,
@@ -19,7 +23,11 @@ exports.createWorkshop = async (req, res) => {
     await workshop.save();
     res.status(201).json(workshop);
   } catch (error) {
+<<<<<<< HEAD
     res.status(500).json({ 
+=======
+    res.status(500).json({
+>>>>>>> upstream/main
       message: 'An error occurred while creating the workshop',
       error: error.message
     });
@@ -53,7 +61,11 @@ exports.updateWorkshop = async (req, res) => {
     if (workshop == null) {
       return res.status(404).json({ message: 'Workshop not found' });
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> upstream/main
     if (req.body.title != null) {
       workshop.title = req.body.title;
     }
@@ -78,7 +90,11 @@ exports.updateWorkshop = async (req, res) => {
     if (req.body.venueAddress != null) {
       workshop.venueAddress = req.body.venueAddress;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> upstream/main
     const updatedWorkshop = await workshop.save();
     res.json(updatedWorkshop);
   } catch (error) {
@@ -97,4 +113,8 @@ exports.deleteWorkshop = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> upstream/main

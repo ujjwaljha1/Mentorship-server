@@ -5,6 +5,10 @@ const connectDB = async () => {
     await mongoose.connect('mongodb+srv://ujjwal:123@cluster0.w3h2a.mongodb.net/SIH?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+<<<<<<< HEAD
+=======
+      serverSelectionTimeoutMS: 10000,
+>>>>>>> upstream/main
     });
     console.log('MongoDB connected successfully');
   } catch (error) {
@@ -16,6 +20,7 @@ const connectDB = async () => {
 module.exports = connectDB;
 
 
+<<<<<<< HEAD
 // const mongoose = require('mongoose');
 
 // const connectDB = async () => {
@@ -29,3 +34,5 @@ module.exports = connectDB;
 // };
 
 // module.exports = connectDB;
+=======
+>>>>>>> upstream/main

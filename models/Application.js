@@ -59,4 +59,8 @@ ApplicationSchema.pre('validate', async function(next) {
   next();
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Application', ApplicationSchema);
+=======
+module.exports = mongoose.model('Application', ApplicationSchema);
+>>>>>>> upstream/main

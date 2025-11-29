@@ -33,4 +33,8 @@ router.get('/:id', workshopController.getWorkshop);
 router.put('/:id', workshopController.updateWorkshop);
 router.delete('/:id', workshopController.deleteWorkshop);
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

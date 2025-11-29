@@ -152,6 +152,7 @@ router.get('/recommendations', async (req, res) => {
   }
 });
 router.post('/recommendations', async (req, res) => {
+<<<<<<< HEAD
     try {
       const userAnswers = req.body;
       console.log('Received user answers:', userAnswers);
@@ -211,6 +212,67 @@ router.post('/recommendations', async (req, res) => {
     }
   });
   
+=======
+  try {
+    const userAnswers = req.body;
+    console.log('Received user answers:', userAnswers);
+
+    const query = {
+      afterTenthStream: userAnswers.afterTenthStream
+    };
+
+    if (userAnswers.workEnvironment) {
+      query.workEnvironment = userAnswers.workEnvironment;
+    }
+
+    // Only include interest and strength if they exist in the database
+    const interestsInDb = await Recommendation.distinct('interest');
+    const strengthsInDb = await Recommendation.distinct('strength');
+
+    if (interestsInDb.includes(userAnswers.interest)) {
+      query.interest = userAnswers.interest;
+    }
+    if (strengthsInDb.includes(userAnswers.strength)) {
+      query.strength = userAnswers.strength;
+    }
+
+    console.log('Query:', query);
+
+    const recommendations = await Recommendation.find(query);
+    console.log('Found recommendations:', recommendations);
+
+    if (recommendations.length === 0) {
+      return res.status(404).json({ message: 'No recommendations found for the given criteria' });
+    }
+
+    res.json(recommendations);
+  } catch (error) {
+    console.error('Error fetching recommendations:', error);
+    res.status(500).json({ message: 'Failed to fetch recommendations', error: error.message });
+  }
+});
+
+// Get interests (for populating the form)
+router.get('/job/interests', async (req, res) => {
+  try {
+    const interests = await Recommendation.distinct('interest');
+    res.json(interests.map(interest => ({ name: interest })));
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch interests' });
+  }
+});
+
+// Get strengths (for populating the form)
+router.get('/job/strengths', async (req, res) => {
+  try {
+    const strengths = await Recommendation.distinct('strength');
+    res.json(strengths.map(strength => ({ name: strength })));
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch strengths' });
+  }
+});
+
+>>>>>>> upstream/main
 // Add new recommendation (for admin purposes)
 router.post('/recommendation', async (req, res) => {
   try {
@@ -274,11 +336,19 @@ router.get('/recommendations/job-titles', async (req, res) => {
     console.log('Fetching job titles...');
     const jobTitles = await Recommendation.distinct('jobTitle');
     console.log('Retrieved job titles:', jobTitles);
+<<<<<<< HEAD
     
     if (jobTitles.length === 0) {
       console.log('No job titles found in the database.');
     }
     
+=======
+
+    if (jobTitles.length === 0) {
+      console.log('No job titles found in the database.');
+    }
+
+>>>>>>> upstream/main
     res.json(jobTitles);
   } catch (error) {
     console.error('Error fetching job titles:', error);
@@ -286,4 +356,8 @@ router.get('/recommendations/job-titles', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

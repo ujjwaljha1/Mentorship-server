@@ -15,4 +15,8 @@ router.get('/companies', careerController.getCompanies);
 router.put('/companies/:id', careerController.updateCompany);
 router.delete('/companies/:id', careerController.deleteCompany);
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

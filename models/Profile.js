@@ -89,4 +89,8 @@ const ProfileSchema = new mongoose.Schema({
   }]
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Profile', ProfileSchema);
+=======
+module.exports = mongoose.model('Profile', ProfileSchema);
+>>>>>>> upstream/main

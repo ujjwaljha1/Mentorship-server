@@ -312,4 +312,8 @@ router.get('/users/:userId/posts', async (req, res) => {
 });
 
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> upstream/main

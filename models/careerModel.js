@@ -28,4 +28,8 @@ const careerSchema = new mongoose.Schema({
   }]
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Career', careerSchema);
+=======
+module.exports = mongoose.model('Career', careerSchema);
+>>>>>>> upstream/main
